@@ -1,10 +1,10 @@
 # Getting Started with SAS
 For now there are two main parts to SAS that we'll call 'blocks'. The Data Block and the Proc Block. The Data Block is for creating and editing data tables. The Proc Block is for processing data and outputting the results.
 - ### Data Block Syntax
-	- Every data block starts with the 'data' keyword
+	- Every data block starts with the ```data``` keyword
 	- Then you must tell SAS which data table you want to create or edit
 	- Then the next few lines will be either the data you are creating or the data you are editing
-	- End the block with 'run'
+	- End the block with ```run```
 	- This will look like:
 ```SAS
 data someDataTable;
@@ -12,11 +12,11 @@ data someDataTable;
 run;
 ```
 - ### Proc Bloc Syntax
-	- Starts with the 'proc' keyword
+	- Starts with the ```proc``` keyword
 	- Then which function you would like to use
 	- Which data you would like to process
 	- Then the body of the block contain the code for processing the data
-	- End with 'run'
+	- End with ```run```
 	- For the univariate proc this would look like:
 ```SAS
 proc univariate data = someDataTable;
@@ -37,35 +37,35 @@ run;
 	- Copy the path to your data file
 ## Some Quick Definitions
 - ### Proc Block
-	- #### dbms
+	- ```dbms```
 		- Similar to dlm this denotes the type of data being imported
 		- Instead telling dbms to look for a special key, you give it a key word to look for
 			- In this class, since we are only using tab delimited text files we will just use the 'tab' keyword
 		- You must also tell dbms to 'replace' the data, otherwise the data will not get overwritten 
-	- #### datafile
+	- ```datafile```
 		- Gets the file at the given path
 - ### Data Block
-	- #### dlm
+	- ```dlm```
 		- Short for delimiter. This is how the data is organized. A delimiter is the special key that separates columns. This is mainly used for importing .txt files because if you import an excel or .csv there are standard ways of separating columns.
 		- dlm can technically be anything, but for this class we will only be using tabs. In SAS you must give the ASCII code for tab which is '09'x
 			- This just means it's the ninth ASCII character
 			- The x tells SAS to use hexadecimal
-	- #### firstobs
+	- ```firstobs```
 		- Where the data starts
 		- If the data starts on the first row of the .txt file then you don't need to have this however, the data given in class usually has the variable names in the first row so this tells SAS to ignore that row and only grab data starting on the row specified (for this class probably row 2)
-	- #### infile
+	- ```infile```
 		- Looks at the data inside a file
-	- #### input
+	- ```input```
 		- This is where you tell SAS what variables you want to use for your data table
 ## Getting Data into SAS
 - Proc Block
-	- Use the 'import' function
+	- Use the ```import``` function
 		- This reads data from some file and outputs a new data table
 	- In order for SAS to be able to do anything with the. txt file we need to give it some information
 		- Where are we outputting the data
 		- Where is the .txt file located
 		- How is the data organized
-	- This is how you would import ex01-044beer.txt and store the data in a data table called Beer:
+	- This is how you would import ex01-044beer.txt and store the data in a data table called ```Beer```:
 ```SAS
 proc import out data = Beer datafile = 'D:\STATS\HW 03\DATA\ex01-044beer.txt' dbms = tab replace;
 run;
@@ -86,12 +86,12 @@ run;
 			- And possibly when the data actually begins
 				- This is only necessary if the variable names are in the .txt file
 		- Next you need to create the variables the the data table will use
-			- Note 'proc import' creates the variables automatically
+			- Note ```proc import``` creates the variables automatically
 			- To find the variables you should use you can just open the .txt file and copy the variables in there
 				- The variables can be called whatever you want, but it's probably a good idea to keep things organized
 				- For simplicity, I will just be using the variable names already given in the .txt file
 			- SAS will assume all data are numbers
-				- In order to read a string you must denote the variable as a string using '$'
+				- In order to read a string you must denote the variable as a string using ```$```
 					- Unfortunately SAS defaults to eight character strings so you need to tell SAS if a string will be longer using the 'length' keyword
 		- This is how you would copy the data from ex01-044beer.txt and store it in a data table called Beer
 ```SAS
@@ -114,12 +114,12 @@ run;
 		- There is an 'up one level' button in the tool bar that lets you go back a directory
 	- Go into the Libraries directory, then in the Work
 		- Here you can open the data tables and look at the contents to double check everything got imported correctly or to look at variable names
-		- I think SAS will default to the Work directory when calling data, but if you would like to be sure you're getting the correct data table you can specify it by writing 'Work.someDataTable'
+		- I think SAS will default to the Work directory when calling data, but if you would like to be sure you're getting the correct data table you can specify it by writing ```Work.someDataTable```
 ## Doing Shit with the Data
 - Now that we have data inside SAS we can finally do stuff with it
 - For this step we will only be using the Proc Blocks
-- Most of what we will be doing will be using the univariate function
-- What's univariate?
+- Most of what we will be doing will be using the ```univariate``` function
+- What's ```univariate```?
 	- Univariate just means single variable
 	- When making graphs and tables we will normally only want to use one variable at a time, this is why we use univariate
 	- To use the univariate function you must first tell SAS which variable you want to use, then what you want to do with that variable.
