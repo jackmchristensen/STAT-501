@@ -63,7 +63,7 @@ run;
 			- Where is the .txt file located
 			- How is the data organized
 		- This is how you would import ex01-044beer.txt and store the data in a data table called Beer:
-	```
+```
 proc import out data = Beer datafile = 'D:\STATS\HW 03\DATA\ex01-044beer.txt' dbms = tab replace;
 run;
 						
@@ -73,7 +73,7 @@ proc import out data = Beer
 	datafile = 'D\STATS\HW 03\DATA\ex01-044beer.txt'
 	dbms = tab replace;
 run;
-	```
+```
 	- Data Block
 		- I like to think that this way doesn't actually import the data table, rather it creates a new data table and copies the data from the .txt file into it
 		- First look in the text file
@@ -124,8 +124,8 @@ run;
 ```
 Also, if you want to overlay the normal and kernel lines you just need to specify that when calling the histogram function:
 ```
-				proc univariate data = Beer;
-					var Alcohol_pct_;
-					histogram Alcohol_pct_ / normal kernel;	*Draws the normal and kernel curves on top of histogram
-				run;
+proc univariate data = Beer;
+	var Alcohol_pct_;
+	histogram Alcohol_pct_ / normal kernel;	*Draws the normal and kernel curves on top of histogram
+run;
 ```
