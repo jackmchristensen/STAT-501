@@ -7,9 +7,9 @@ For now there are two main parts to SAS that we'll call 'blocks'. The Data Block
 	- End the block with 'run'
 	- This will look like:
 ```
-			data someDataTable;
-				***CODE***
-			run;
+data someDataTable;
+	***CODE***
+run;
 ```
 - Proc Bloc Syntax
 	- Starts with the 'proc' keyword
@@ -19,9 +19,9 @@ For now there are two main parts to SAS that we'll call 'blocks'. The Data Block
 	- End with 'run'
 	- For the univariate proc this would look like:
 ```
-			proc univariate data = someDataTable;
-				***CODE***
-			run;
+proc univariate data = someDataTable;
+	***CODE***
+run;
 ```
 - ## Doing stuff with SAS can be broken down into three main steps
 	- Download the data
@@ -64,15 +64,15 @@ For now there are two main parts to SAS that we'll call 'blocks'. The Data Block
 			- How is the data organized
 		- This is how you would import ex01-044beer.txt and store the data in a data table called Beer:
 	```
-				proc import out data = Beer datafile = 'D:\STATS\HW 03\DATA\ex01-044beer.txt' dbms = tab replace;
-				run;
+proc import out data = Beer datafile = 'D:\STATS\HW 03\DATA\ex01-044beer.txt' dbms = tab replace;
+run;
 						
-				*** or if you don't want to put everything on one line you can split it up into separate lines without a semicolon at the end ***
+*** or if you don't want to put everything on one line you can split it up into separate lines without a semicolon at the end ***
 						
-				proc import out data = Beer
-					datafile = 'D\STATS\HW 03\DATA\ex01-044beer.txt'
-					dbms = tab replace;
-				run;
+proc import out data = Beer
+	datafile = 'D\STATS\HW 03\DATA\ex01-044beer.txt'
+	dbms = tab replace;
+run;
 	```
 	- Data Block
 		- I like to think that this way doesn't actually import the data table, rather it creates a new data table and copies the data from the .txt file into it
@@ -92,13 +92,13 @@ For now there are two main parts to SAS that we'll call 'blocks'. The Data Block
 						-	Unfortunately SAS defaults to eight character strings so you need to tell SAS if a string will be longer using the 'length' keyword
 		- This is how you would copy the data from ex01-044beer.txt and store it in a data table called Beer
 ```
-				data Beer;
-					infile 'D:\STATS\HW 03\DATA\ex01-044beer.txt' dlm = '09'x firstobs = 2;
-					length Type $ 50;	*Initializing the variable Type as a string with 50 characters
-					length Beer $ 50;	*Note you can have a variable with the same name as the data table but this might get confusing
-					length Brewery $ 50;
-					input Type Beer Brewery Calories Carbo_g_ Alcohol_pct_;	*Note I didn't need to initialize the number variables because SAS defaults to using numbers
-				run;
+data Beer;
+	infile 'D:\STATS\HW 03\DATA\ex01-044beer.txt' dlm = '09'x firstobs = 2;
+	length Type $ 50;	*Initializing the variable Type as a string with 50 characters
+	length Beer $ 50;	*Note you can have a variable with the same name as the data table but this might get confusing
+	length Brewery $ 50;
+	input Type Beer Brewery Calories Carbo_g_ Alcohol_pct_;	*Note I didn't need to initialize the number variables because SAS defaults to using numbers
+run;
 ```
 - So we got the data into SAS, where does it live?
 	- In the explorer window navigate to the highest directory
@@ -117,10 +117,10 @@ For now there are two main parts to SAS that we'll call 'blocks'. The Data Block
 		- Another nice thing about the univariate function is that it will automatically give you a bunch of data about the given variable like mean, standard deviation, variance, range, etc.
 		- For example if we wanted to make a histogram of the alcohol content in the beer data this is what we would do:
 ```
-				proc univariate data = Beer;	*Tells SAS which data table to look at (You can also use Work.Beer to be more exact)
-					var Alcohol_pct_; 			*Which variable in the data table to use
-					histogram Alcohol_pct_; 	*Creates a histogram graph of the Alcohol data
-				run;
+proc univariate data = Beer;	*Tells SAS which data table to look at (You can also use Work.Beer to be more exact)
+	var Alcohol_pct_; 			*Which variable in the data table to use
+	histogram Alcohol_pct_; 	*Creates a histogram graph of the Alcohol data
+run;
 ```
 Also, if you want to overlay the normal and kernel lines you just need to specify that when calling the histogram function:
 ```
