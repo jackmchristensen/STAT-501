@@ -127,8 +127,8 @@ run;
 	- For example if we wanted to make a histogram of the alcohol content in the beer data this is what we would do:
 ```SAS
 proc univariate data = Beer;	/* Tells SAS which data table to look at (You can also use Work.Beer to be more exact) */
-	var Alcohol_pct_; 			/* Which variable in the data table to use */
-	histogram Alcohol_pct_; 	/* Creates a histogram graph of the Alcohol data */
+	var Alcohol_pct_; 	/* Which variable in the data table to use */
+	histogram Alcohol_pct_; /* Creates a histogram graph of the Alcohol data */
 run;
 ```
 ![Output of the code above](https://github.com/jackmchristensen/STAT-501/blob/main/Screenshots/Histogram.png)
