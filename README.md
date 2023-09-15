@@ -143,7 +143,7 @@ run;
 ![Output of the code above](https://github.com/jackmchristensen/STAT-501/blob/main/Screenshots/Histogram_With_Normal_Kernel.png)
 
 And here is the data we get for free by calling the univariate function:
-![Output of the univariate function](https://github.com/jackmchristensen/STAT-501/blob/main/Screenshots/Univariate Output.PNG)
+![Output of the univariate function](https://github.com/jackmchristensen/STAT-501/blob/main/Screenshots/Univariate_Output.png)
 
 ## Some Final Notes
 - I've gotten into the habit of always checking the logs after running a block. This will tell you if there was an error in your code and if there is, what the error might be
