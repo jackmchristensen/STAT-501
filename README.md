@@ -44,6 +44,7 @@ run;
 		- You must also tell dbms to 'replace' the data, otherwise the data will not get overwritten 
 	- ```datafile```
 		- Gets the file at the given path
+  		- Keep in mind that this is the path on *your* machine. The path I use for the examples are for my computer and won't work on yours unless we have the exact same file structure (which we don't)
 - ### Data Block
 	- ```dlm```
 		- Short for delimiter. This is how the data is organized. A delimiter is the special key that separates columns. This is mainly used for importing .txt files because if you import an excel or .csv there are standard ways of separating columns.
@@ -55,6 +56,7 @@ run;
 		- If the data starts on the first row of the .txt file then you don't need to have this however, the data given in class usually has the variable names in the first row so this tells SAS to ignore that row and only grab data starting on the row specified (for this class probably row 2)
 	- ```infile```
 		- Looks at the data inside a file
+  		- Again, this needs the path to the file on your machine
 	- ```input```
 		- This is where you tell SAS what variables you want to use for your data table
 ## Getting Data into SAS
@@ -92,7 +94,7 @@ run;
 				- For simplicity, I will just be using the variable names already given in the .txt file
 			- SAS will assume all data are numbers
 				- In order to read a string you must denote the variable as a string using ```$```
-					- Unfortunately SAS defaults to eight character strings so you need to tell SAS if a string will be longer using the ```length``` keyword
+					- Unfortunately SAS defaults to eight character strings so you need to tell SAS if a string will be longer using the ```length``` keyword. I just used a length of 50 for the example because I figured there wouldn't be any strings with a length greater than 50
 		- This is how you would copy the data from ex01-044beer.txt and store it in a data table called Beer
 ```SAS
 data Beer;
