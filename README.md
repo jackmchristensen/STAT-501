@@ -131,7 +131,8 @@ proc univariate data = Beer;	/* Tells SAS which data table to look at (You can a
 	histogram Alcohol_pct_; 	/* Creates a histogram graph of the Alcohol data */
 run;
 ```
-![Here is the output of the code above](https://github.com/jackmchristensen/STAT-501/blob/main/Screenshots/Histogram.png)
+![Output of the code above](https://github.com/jackmchristensen/STAT-501/blob/main/Screenshots/Histogram.png)
+
 Also, if you want to overlay the normal and kernel lines you just need to specify that when calling the histogram function:
 ```SAS
 proc univariate data = Beer;
@@ -139,6 +140,11 @@ proc univariate data = Beer;
 	histogram Alcohol_pct_ / normal kernel;	/* Draws the normal and kernel curves on top of histogram*/
 run;
 ```
+![Output of the code above](https://github.com/jackmchristensen/STAT-501/blob/main/Screenshots/Histogram_With_Normal_Kernel.png)
+
+And here is the data we get for free by calling the univariate function:
+![Output of the univariate function](https://github.com/jackmchristensen/STAT-501/blob/main/Screenshots/Univariate Output.PNG)
+
 ## Some Final Notes
 - I've gotten into the habit of always checking the logs after running a block. This will tell you if there was an error in your code and if there is, what the error might be
 - I think the convention used to be to write SAS in all uppercase, but the more recent SAS examples I've seen have been in lowercase. I think it's a preference thing, you can mix and match uppercase and lowercase and SAS doesn't care, just do whatever you think looks nice
