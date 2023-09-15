@@ -7,9 +7,9 @@ For now there are two main parts to SAS that we'll call 'blocks'. The Data Block
 	- End the block with 'run'
 	- This will look like:
 ```SAS
-			data someDataTable;
-				/*** CODE ***/
-			run;
+data someDataTable;
+	/*** CODE ***/
+run;
 ```
 - ### Proc Bloc Syntax
 	- Starts with the 'proc' keyword
@@ -19,9 +19,9 @@ For now there are two main parts to SAS that we'll call 'blocks'. The Data Block
 	- End with 'run'
 	- For the univariate proc this would look like:
 ```SAS
-			proc univariate data = someDataTable;
-				/*** CODE ***/
-			run;
+proc univariate data = someDataTable;
+	/*** CODE ***/
+run;
 ```
 - To run a block you have to select it by highlighting the code and then click the little running man icon in the tool bar
 	- You can run multiple blocks at once, but they will be ran from top to bottom so if you try to make a graph before making a data table you will get an error
