@@ -68,13 +68,13 @@ run;
 	- This is how you would import ex01-044beer.txt and store the data in a data table called Beer:
 ```SAS
 proc import out data = Beer datafile = 'D:\STATS\HW 03\DATA\ex01-044beer.txt' dbms = tab replace;
-				run;
+run;
 						
-				/*** or if you don't want to put everything on one line you can split it up into separate lines without a semicolon at the end ***/
+	/*** or if you don't want to put everything on one line you can split it up into separate lines without a semicolon at the end ***/
 						
-				proc import out data = Beer
-					datafile = 'D\STATS\HW 03\DATA\ex01-044beer.txt'
-					dbms = tab replace;
+proc import out data = Beer
+	datafile = 'D\STATS\HW 03\DATA\ex01-044beer.txt'
+	dbms = tab replace;
 run;
 ```
 - Data Block
