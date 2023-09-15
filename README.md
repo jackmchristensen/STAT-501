@@ -131,6 +131,7 @@ proc univariate data = Beer;	/* Tells SAS which data table to look at (You can a
 	histogram Alcohol_pct_; 	/* Creates a histogram graph of the Alcohol data */
 run;
 ```
+[Here is the output of the code above](https://github.com/jackmchristensen/STAT-501/blob/main/Screenshots/Histogram.png)
 Also, if you want to overlay the normal and kernel lines you just need to specify that when calling the histogram function:
 ```SAS
 proc univariate data = Beer;
