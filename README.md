@@ -90,9 +90,9 @@ run;
 			- To find the variables you should use you can just open the .txt file and copy the variables in there
 				- The variables can be called whatever you want, but it's probably a good idea to keep things organized
 				- For simplicity, I will just be using the variable names already given in the .txt file
-			-	SAS will assume all data are numbers
-				-	In order to read a string you must denote the variable as a string using '$'
-					-	Unfortunately SAS defaults to eight character strings so you need to tell SAS if a string will be longer using the 'length' keyword
+			- SAS will assume all data are numbers
+				- In order to read a string you must denote the variable as a string using '$'
+					- Unfortunately SAS defaults to eight character strings so you need to tell SAS if a string will be longer using the 'length' keyword
 		- This is how you would copy the data from ex01-044beer.txt and store it in a data table called Beer
 ```SAS
 data Beer;
@@ -103,6 +103,12 @@ data Beer;
 	input Type Beer Brewery Calories Carbo_g_ Alcohol_pct_;	/* Note I didn't need to initialize the number variables because SAS defaults to using numbers */
 run;
 ```
+- Which one should you use?
+	- It really comes down to personal preference
+ 	- The Proc Block method is a lot simpler, but you don't have as much control over things
+		- You can rename variables after the fact (and this works for renaming variables whenever you want) by using the 'rename' function in a Data Block 
+	- The Data Block method gives you more control, but it's more prone to errors and if a string is longer than what you've specified you need to go back and change the code
+		- Also, since we are already being given the variable names I don't think the ability to name your own variables will be of too much use in this class   
 - So we got the data into SAS, where does it live?
 	- In the explorer window navigate to the highest directory
 		- There is an 'up one level' button in the tool bar that lets you go back a directory
@@ -132,5 +138,6 @@ proc univariate data = Beer;
 	histogram Alcohol_pct_ / normal kernel;	/* Draws the normal and kernel curves on top of histogram*/
 run;
 ```
-## Some Final Tips
+## Some Final Notes
 - I've gotten into the habit of always checking the logs after running a block. This will tell you if there was an error in your code and if there is, what the error might be
+- I think the convention used to be to write SAS in all uppercase, but the more recent SAS examples I've seen have been in lowercase. I think it's a preference thing, you can mix and match uppercase and lowercase and SAS doesn't care, just do whatever you think looks nice
