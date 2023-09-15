@@ -1,5 +1,5 @@
 # Getting Started with SAS
-For now there are two main parts to SAS that we'll call 'blocks'. The Data Block and the Proc Block. The Data Block is for creating and editing data tables. The Proc Block is for processing data and outputting the results.
+For now there are two main parts to SAS that we'll be using and we'll call them 'blocks'. The Data Block and the Proc Block. The Data Block is for creating and editing data tables. The Proc Block is for processing data and outputting the results.
 - ### Data Block Syntax
 	- Every data block starts with the ```data``` keyword
 	- Then you must tell SAS which data table you want to create or edit
