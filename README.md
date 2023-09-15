@@ -92,7 +92,7 @@ run;
 				- For simplicity, I will just be using the variable names already given in the .txt file
 			- SAS will assume all data are numbers
 				- In order to read a string you must denote the variable as a string using ```$```
-					- Unfortunately SAS defaults to eight character strings so you need to tell SAS if a string will be longer using the 'length' keyword
+					- Unfortunately SAS defaults to eight character strings so you need to tell SAS if a string will be longer using the ```length``` keyword
 		- This is how you would copy the data from ex01-044beer.txt and store it in a data table called Beer
 ```SAS
 data Beer;
@@ -106,7 +106,7 @@ run;
 - Which one should you use?
 	- It really comes down to personal preference
  	- The Proc Block method is a lot simpler, but you don't have as much control over things
-		- You can rename variables after the fact (and this works for renaming variables whenever you want) by using the 'rename' function in a Data Block 
+		- You can rename variables after the fact (and this works for renaming variables whenever you want) by using the ```rename``` function in a Data Block 
 	- The Data Block method gives you more control, but it's more prone to errors and if a string is longer than what you've specified you need to go back and change the code
 		- Also, since we are already being given the variable names I don't think the ability to name your own variables will be of too much use in this class   
 - So we got the data into SAS, where does it live?
